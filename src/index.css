@@ -191,3 +191,139 @@
     display: none;
   }
 }
+  }
+}
+
+@layer components {
+  .lab-container {
+    @apply relative before:absolute before:inset-0 before:bg-black/30 before:rounded-2xl before:backdrop-blur-sm;
+  }
+  
+  .lab-card {
+    @apply bg-surface-900/80 border border-monster-metal/40 rounded-2xl backdrop-blur-sm relative overflow-hidden;
+  }
+  
+  .beaker {
+    @apply relative bg-gradient-to-b from-emerald-900/20 to-monster-toxic/10 rounded-b-xl border border-monster-metal/40 shadow-beaker;
+  }
+  
+  .tube {
+    @apply h-full w-2 bg-tube-gradient rounded-full relative overflow-hidden shadow-glow;
+  }
+  
+  .bolt {
+    @apply absolute w-3 h-3 bg-yellow-400 rounded-full shadow-bolt z-10;
+  }
+  
+  .electrode {
+    @apply absolute w-5 h-5 bg-monster-electric rounded-full shadow-electrode;
+  }
+  
+  .spark-container {
+    @apply absolute overflow-hidden pointer-events-none;
+  }
+  
+  .spark {
+    @apply w-px h-6 bg-monster-electric absolute animate-spark;
+  }
+  
+  .slime-drip {
+    @apply absolute w-1 h-4 bg-monster-slime rounded-b-full opacity-80;
+  }
+  
+  .monster-lab-part {
+    @apply transition-all duration-300 transform origin-center hover:scale-105;
+  }
+  
+  .stitched {
+    @apply relative;
+  }
+  
+  .stitched::before {
+    @apply content-[''] absolute border-2 border-dashed border-monster-rust opacity-70;
+  }
+  
+  .monster-preview-chamber {
+    @apply relative flex items-center justify-center rounded-xl border-2 border-monster-metal bg-black/40 backdrop-blur-sm overflow-hidden;
+  }
+  
+  .monster-preview-chamber::before {
+    @apply content-[''] absolute inset-0 bg-gradient-to-b from-monster-toxic/5 to-monster-electric/5 opacity-40;
+  }
+  
+  .bubbling-liquid {
+    @apply absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-monster-bubbling/30 to-monster-toxic/10 overflow-hidden;
+  }
+  
+  .bubble {
+    @apply absolute rounded-full bg-monster-bubbling/60 animate-bubble;
+  }
+  
+  .mad-scientist-title {
+    @apply font-bold bg-gradient-to-r from-monster-electric via-monster-toxic to-monster-bubbling bg-clip-text text-transparent;
+  }
+  
+  .control-panel {
+    @apply bg-surface-800 border border-monster-metal/50 rounded-lg p-4 relative overflow-hidden;
+  }
+  
+  .control-panel::before {
+    @apply content-[''] absolute inset-0 bg-gradient-to-b from-black/20 to-transparent opacity-70;
+  }
+  
+  .laboratory-button {
+    @apply relative bg-monster-metal/50 hover:bg-monster-metal/70 border border-monster-metal text-monster-electric font-bold rounded-md px-3 py-2 transition-all duration-300 shadow-md overflow-hidden;
+  }
+  
+  .laboratory-button::before {
+    @apply content-[''] absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300;
+  }
+}
+
+@keyframes bubble {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { transform: translateY(-20px) scale(1.2); opacity: 0.7; }
+}
+
+@keyframes spark {
+  0%, 100% { height: 0; top: 0; opacity: 0; }
+  50% { height: 20px; top: -10px; opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes jitter {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(1px, 1px) rotate(1deg); }
+  50% { transform: translate(-1px, -1px) rotate(-1deg); }
+  75% { transform: translate(-1px, 1px) rotate(0deg); }
+}
+
+@keyframes smoke {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  20% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-100px) scale(3); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -256,11 +256,117 @@ const MainFeature = () => {
             </div>
           </div>
         </div>
+          <span className="relative mr-2">⚡</span>
+          <div className="absolute top-2 right-2 w-8 h-20">
+            <div className="tube"></div>
+            <div className="bubbling-liquid">
+              {[...Array(5)].map((_, i) => (
+                <div 
+                  key={`bubble-2-${i}`} 
+                  className="bubble" 
+                  style={{
+                    width: `${Math.random() * 10 + 5}px`,
+                    height: `${Math.random() * 10 + 5}px`,
+                    left: `${Math.random() * 100}%`,
+                    animationDelay: `${Math.random() * 2}s`,
+                    animationDuration: `${Math.random() * 3 + 2}s`
+                  }}
+                ></div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Electrodes */}
+          <div className="electrode top-3 left-3 animate-pulse-glow"></div>
+          <div className="electrode top-3 right-3 animate-pulse-glow"></div>
+          <div className="electrode bottom-3 left-3 animate-pulse-glow"></div>
+          <div className="electrode bottom-3 right-3 animate-pulse-glow"></div>
+          
+          {/* Sparks */}
+          <div className="spark-container top-3 left-3 w-4 h-4">
+            <div className="spark"></div>
+          </div>
+          <div className="spark-container top-3 right-3 w-4 h-4">
+            <div className="spark"></div>
+          </div>
+          
+              style={{ backgroundColor: '#39FF14', color: '#000' }}
+            >
+          <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 w-full h-full opacity-30">
+            {[...Array(3)].map((_, i) => (
+              <div 
+                key={`smoke-${i}`}
+                className="absolute w-16 h-16 bg-white/20 rounded-full animate-smoke"
+                style={{
+                  left: `${Math.random() * 80 + 10}%`,
+                  animationDelay: `${Math.random() * 5}s`
+                }}
+              ></div>
+            ))}
+          </div>
+      <motion.div 
+        className="card lab-card"
+            {/* Monster Visualization - using emojis as placeholders */}
+            <div className="relative flex flex-col items-center text-8xl filter drop-shadow-lg" style={{ lineHeight: 1 }}>
+              {/* Head */}
+              <div className="monster-lab-part stitched animate-jitter" style={{ color: customColors.heads, transform: `rotate(${Math.random() * 6 - 3}deg)` }}>
+                {selectedParts.heads.emoji}
+          <h2 className="text-xl font-bold mad-scientist-title">
+            EXPERIMENT CONTROLS
+          </h2>
+              
+              {/* Body */}
+            className="laboratory-button flex items-center gap-2 text-sm"
+                {selectedParts.bodies.emoji}
+                
+            MUTATE
+                {customColors.bodies === '#05FFD2' && (
+                  <>
+                    <div className="slime-drip" style={{ left: '20%', bottom: '-20px' }}></div>
+                    <div className="slime-drip" style={{ left: '60%', bottom: '-15px', height: '8px' }}></div>
+        <div className="flex flex-wrap gap-2 mb-6 -rotate-1">
+                )}
+                
+                {/* Bolts for metal body */}
+                {selectedParts.bodies.name === 'Metal' && (
+                  <>
+                    <div className="bolt" style={{ top: '20%', left: '10%' }}></div>
+                  ? 'bg-monster-toxic text-black shadow-glow' 
+                  : 'bg-surface-800 border border-monster-metal/30 text-surface-400 hover:bg-surface-700'
+                )}
+              style={{ transform: `rotate(${Math.random() * 4 - 2}deg)` }}
+            >
+              
+              {/* Arms with random positioning */}
+              <div className="monster-lab-part stitched absolute" 
+                style={{ 
+                  color: customColors.arms, 
+                  top: '45%', 
+                  left: '45%', 
+            Select Monster Parts
+                }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 control-panel p-4">
+            {Object.keys(monsterParts).map((category) => (
+              
+              {/* Legs with random positioning */}
+              <div className="monster-lab-part stitched mt-2" 
+                style={{ 
+                  color: customColors.legs,
+                  transform: `rotate(${Math.random() * 10 - 5}deg) translateX(${Math.random() * 8 - 4}px)`
+                }}>
+                {selectedParts.legs.emoji}
+              </div>
+            </div>
+          </div>
+        </div>
         
         {/* Scale Control */}
         <div className="mt-4 w-full max-w-xs">
           <label className="block text-sm font-medium text-surface-600 dark:text-surface-300 mb-1">
-            Creature Size
+            <h3 className="text-lg font-medium mb-3 mad-scientist-title">
+              Select {activeCategory.slice(0, -1)}
+            </h3>
+          </h3>
           </label>
           <input 
             type="range" 
@@ -274,20 +380,22 @@ const MainFeature = () => {
         </div>
         
         {/* Name and Save */}
-        <div className="mt-6 w-full max-w-xs">
+                  }`} style={{ transform: `rotate(${Math.random() * 6 - 3}deg)` }}
           <label className="block text-sm font-medium text-surface-600 dark:text-surface-300 mb-1">
             Name Your Creation
           </label>
           <div className="flex gap-2">
-            <input 
+                  <span className="text-sm font-medium text-monster-electric">{part.name}</span>
               type="text" 
               value={monsterName}
               onChange={(e) => setMonsterName(e.target.value)}
               placeholder="Enter monster name"
               className="input-control flex-grow"
             />
-            <button 
-              onClick={handleSaveMonster}
+        <div>
+          <h3 className="text-lg font-medium mb-3 mt-6 mad-scientist-title">
+            CHEMICAL TREATMENTS
+          </h3> 
               disabled={isSaving}
               className="btn-primary whitespace-nowrap"
               style={{ backgroundColor: '#39FF14', color: '#000' }}
@@ -301,29 +409,39 @@ const MainFeature = () => {
             </button>
           </div>
         </div>
-      </motion.div>
-      
-      {/* Controls Section */}
-      <motion.div 
-        className="card lab-card"
+          <div className="mt-4 control-panel p-3">
+          <div className="mt-4">
+            <div>
+              <div>ACTIVE SPECIMEN: {selectedParts[activeCategory].name}</div>
+              <div>Current Part: {selectedParts[activeCategory].name}</div>
+            </div>
+            <div className="flex items-center space-x-2">
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+                className="w-6 h-6 rounded-full animate-pulse-glow"
+                style={{ backgroundColor: customColors[activeCategory], boxShadow: `0 0 10px ${customColors[activeCategory]}` }}
       >
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold mad-scientist-title">
             EXPERIMENT CONTROLS
           </h2>
           <button 
-            onClick={handleRandomize}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default MainFeature;
+
             className="laboratory-button flex items-center gap-2 text-sm"
           >
             <ApperIcon name="Zap" className="h-4 w-4" />
             MUTATE
           </button>
         </div>
-        
-        {/* Category Tabs */}
         <div className="flex flex-wrap gap-2 mb-6 -rotate-1">
           {Object.keys(monsterParts).map((category) => (
             <button
