@@ -6,14 +6,14 @@ import ApperIcon from './ApperIcon';
 // Monster Part Data
 const monsterParts = {
   heads: [
-    { id: 'head1', name: 'Round Head', color: '#9333EA', emoji: '😈' },
-    { id: 'head2', name: 'Pointy Head', color: '#3B82F6', emoji: '👹' },
-    { id: 'head3', name: 'Blob Head', color: '#F97316', emoji: '👾' },
+    { id: 'head1', name: 'Slime', color: '#9333EA', emoji: '🤢' },
+    { id: 'head2', name: 'Robot', color: '#3B82F6', emoji: '🤖' },
+    { id: 'head3', name: 'Dragon', color: '#F97316', emoji: '🐲' },
   ],
   bodies: [
-    { id: 'body1', name: 'Square Body', color: '#10B981', emoji: '🟩' },
-    { id: 'body2', name: 'Round Body', color: '#F59E0B', emoji: '⭕' },
-    { id: 'body3', name: 'Triangle Body', color: '#EC4899', emoji: '🔺' },
+    { id: 'body1', name: 'Furry', color: '#10B981', emoji: '🧸' },
+    { id: 'body2', name: 'Metal', color: '#6B7280', emoji: '🛡️' },
+    { id: 'body3', name: 'Transparent', color: '#3B82F6', emoji: '🫧' },
   ],
   arms: [
     { id: 'arms1', name: 'Tentacles', color: '#8B5CF6', emoji: '🐙' },
@@ -21,8 +21,8 @@ const monsterParts = {
     { id: 'arms3', name: 'Wiggly Arms', color: '#10B981', emoji: '〰️' },
   ],
   legs: [
-    { id: 'legs1', name: 'Stubby Legs', color: '#F97316', emoji: '🦶' },
-    { id: 'legs2', name: 'Spider Legs', color: '#1E3A8A', emoji: '🕷️' },
+    { id: 'legs1', name: 'Tentacles', color: '#F97316', emoji: '🦑' },
+    { id: 'legs2', name: 'Wheels', color: '#1E3A8A', emoji: '🛞' },
     { id: 'legs3', name: 'Frog Legs', color: '#65A30D', emoji: '🐸' },
   ],
 };
@@ -65,6 +65,13 @@ const MainFeature = () => {
     }));
   }, [selectedParts, activeCategory]);
 
+  const handleDropdownSelect = (e, category) => {
+    const selectedId = e.target.value;
+    const selectedPart = monsterParts[category].find(part => part.id === selectedId);
+    if (selectedPart) {
+      handlePartSelect(selectedPart);
+    }
+  };
   const handlePartSelect = (part) => {
     setSelectedParts(prev => ({
       ...prev,
@@ -236,6 +243,25 @@ const MainFeature = () => {
         {/* Parts Selection */}
         <div className="mb-6">
           <h3 className="text-lg font-medium mb-3">
+            Monster Part Dropdowns
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+            {Object.keys(monsterParts).map((category) => (
+              <div key={`dropdown-${category}`}>
+                <label className="block text-sm font-medium text-surface-600 dark:text-surface-300 mb-1">
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </label>
+                <select 
+                  className="input-control"
+                  value={selectedParts[category].id}
+                  onChange={(e) => handleDropdownSelect(e, category)}
+                >
+                  {monsterParts[category].map(part => (
+                    <option key={part.id} value={part.id}>{part.name}</option>
+                  ))}
+                </select>
+              </div>
+            ))}
             Select {activeCategory.slice(0, -1)}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
