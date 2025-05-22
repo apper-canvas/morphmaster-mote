@@ -48,12 +48,12 @@ const Home = () => {
               Build Your Monster
             </button>
             <button
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 transform ${
-                activeTab === 'gallery' ? 'rotate-1' : '-rotate-1'
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                activeTab === 'gallery' 
+                activeTab === 'gallery' ? 'rotate-1' : '-rotate-1'
+              } ${
+                activeTab === 'gallery'
                   ? 'bg-primary text-white shadow-sm' 
-                  : 'text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-700'
+                  : 'text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-700' 
               }`}
               onClick={() => setActiveTab('gallery')}
             >
