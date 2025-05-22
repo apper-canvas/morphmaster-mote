@@ -243,7 +243,7 @@ const MainFeature = () => {
         {/* Parts Selection */}
         <div className="mb-6">
           <h3 className="text-lg font-medium mb-3">
-            Monster Part Dropdowns
+            Select Monster Parts
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
             {Object.keys(monsterParts).map((category) => (
@@ -262,6 +262,9 @@ const MainFeature = () => {
                 </select>
               </div>
             ))}
+          </div>
+          
+          <h3 className="text-lg font-medium mb-3">
             Select {activeCategory.slice(0, -1)}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
