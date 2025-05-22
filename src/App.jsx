@@ -39,7 +39,7 @@ function App() {
       <header className="bg-white dark:bg-surface-800 shadow-sm">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-primary">MorphMaster</span>
+            <span className="text-xl font-bold mad-scientist-title">Monster Lab Creator</span>
           </div>
           <button 
             onClick={toggleDarkMode}
@@ -60,7 +60,7 @@ function App() {
       
       <footer className="bg-white dark:bg-surface-800 shadow-inner mt-auto">
         <div className="container mx-auto px-4 py-4 text-center text-surface-500 dark:text-surface-400 text-sm">
-          © {new Date().getFullYear()} MorphMaster - Monster Lab Creator
+          © {new Date().getFullYear()} Monster Lab Creator - A Mad Scientist's Dream
         </div>
       </footer>
       

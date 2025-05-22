@@ -16,7 +16,7 @@ const Home = () => {
         >
           Monster Lab Creator
         </motion.h1>
-        <motion.p 
+        <motion.p
           className="text-surface-600 dark:text-surface-300 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -30,29 +30,12 @@ const Home = () => {
       <div className="absolute top-10 left-10 w-24 h-24 rounded-full bg-monster-toxic/10 animate-pulse-glow pointer-events-none opacity-30"></div>
       <div className="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-monster-electric/10 animate-pulse-glow pointer-events-none opacity-30"></div>
       <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-monster-bubbling/10 animate-pulse-glow pointer-events-none opacity-30"></div>
-      
-      {/* Laboratory decoration elements */}
-      <div className="absolute top-10 left-10 w-24 h-24 rounded-full bg-monster-toxic/10 animate-pulse-glow pointer-events-none opacity-30"></div>
-        <div className="bg-lab-surface border border-monster-metal/30 p-1 rounded-xl shadow-card transform -rotate-1">
-      <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-monster-bubbling/10 animate-pulse-glow pointer-events-none opacity-30"></div>
-      
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 transform ${
-                activeTab === 'build' ? 'rotate-1' : '-rotate-1'
-              } ${
-                activeTab === 'build' 
-        <div className="bg-lab-surface border border-monster-metal/30 p-1 rounded-xl shadow-card transform -rotate-1">
+
+      <div className="bg-lab-surface border border-monster-metal/30 p-1 rounded-xl shadow-card transform -rotate-1">
           <div className="flex space-x-1">
             <button
               onClick={() => setActiveTab('build')}
-                activeTab === 'build' ? 'rotate-1' : '-rotate-1'
-              } ${
-                activeTab === 'build' 
-                  ? 'bg-primary text-white shadow-sm' 
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                activeTab === 'gallery' ? 'rotate-1' : '-rotate-1'
-              } ${
-                activeTab === 'gallery'
-              onClick={() => setActiveTab('build')}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 transform ${activeTab === 'build' ? 'rotate-1 bg-primary text-white shadow-sm' : '-rotate-1 text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-700'}`}
             >
               Build Your Monster
             </button>
@@ -70,7 +53,6 @@ const Home = () => {
             </button>
           </div>
         </div>
-      </div>
       
       {/* Content */}
       <div className="mt-6">
@@ -79,7 +61,7 @@ const Home = () => {
         ) : (
           <div className="card text-center py-12">
             <h3 className="text-xl text-surface-600 dark:text-surface-300">
-              Monster Gallery Coming Soon!
+              Monster Gallery - Coming Soon!
             </h3>
             <p className="mt-2 text-surface-500 dark:text-surface-400">
               Your created monsters will appear here.
