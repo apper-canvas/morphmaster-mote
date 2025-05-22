@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './styles/toastify-fix.css';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import ApperIcon from './components/ApperIcon';

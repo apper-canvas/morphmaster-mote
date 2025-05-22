@@ -1,9 +1,20 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
 plugins: [react()],
-server: {
+  plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [],
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
 allowedHosts: true,
 host: true,
 strictPort: true,
