@@ -413,15 +413,18 @@ const MainFeature = () => {
           </div>
           <div className="mt-4 control-panel p-3">
           <div className="mt-4">
-              ACTIVE SPECIMEN: {selectedParts[activeCategory].name}
-              Current Part: {selectedParts[activeCategory].name}
-            </label>
+            <div>
+              <div>ACTIVE SPECIMEN: {selectedParts[activeCategory].name}</div>
+              <div>Current Part: {selectedParts[activeCategory].name}</div>
+            </div>
             <div className="flex items-center space-x-2">
+              <div
                 className="w-6 h-6 rounded-full animate-pulse-glow"
                 style={{ backgroundColor: customColors[activeCategory], boxShadow: `0 0 10px ${customColors[activeCategory]}` }}
-                style={{ backgroundColor: customColors[activeCategory] }}
               />
-              <span className="text-sm text-surface-500 dark:text-surface-400">
+              <span 
+                className="text-sm text-surface-500 dark:text-surface-400"
+              >
                 {customColors[activeCategory]}
               </span>
             </div>
